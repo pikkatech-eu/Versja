@@ -21,7 +21,7 @@ namespace Versja.Domain
 	/// </summary>
 	public class Version
 	{
-		private static readonly Regex RX_VERSION = new Regex(@"^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)(?:-(?<release>[A-Za-z]+)(?:\.(?<date>\d{8})(?:\.(?<cadence>\d+))?)?)?(?:\+(?<runtime>[A-Za-z0-9.]+))?$");
+		private static readonly Regex RX_VERSION = new Regex(@"^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)(?:-(?<release>[A-Za-z0-9]+)(?:\.(?<date>\d{8})(?:\.(?<cadence>\d+))?)?)?(?:\+(?<runtime>[A-Za-z0-9.]+))?$");
 			
 		#region Properties
 		/// <summary>
@@ -153,6 +153,11 @@ namespace Versja.Domain
 
 			version.ReleaseIdentifier	= GetReleaseIdentifier(release);
 
+			if (version.ReleaseIdentifier == ReleaseIdentifier.ReleaseCandidate)
+			{
+				version.RCNumber	= GetReleaseCandidateNumber(release);
+			}
+
 			version.RuntimeTarget	= runtime;
 
 			try
@@ -168,6 +173,21 @@ namespace Versja.Domain
 			catch (Exception)	{}
 
 			return version;
+		}
+
+		private static int GetReleaseCandidateNumber(string release)
+		{
+			Regex rx_RCNumber = new Regex(@"\d+");
+			Match match = rx_RCNumber.Match(release);
+
+			try
+			{
+				return Int32.Parse(match.Value);
+			}
+			catch (Exception)
+			{
+				return 1;
+			}
 		}
 
 		#region Json & I/O
