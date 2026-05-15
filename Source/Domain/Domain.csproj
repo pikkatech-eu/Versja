@@ -6,6 +6,7 @@
 		<Nullable>enable</Nullable>
 		<BaseOutputPath>..\..\Binary</BaseOutputPath>
 		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+		<RootNamespace>Versja.Domain</RootNamespace>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
