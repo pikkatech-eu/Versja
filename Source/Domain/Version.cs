@@ -7,8 +7,11 @@
 * Copyright:    pikkatech.eu (www.pikkatech.eu)                                    *
 ***********************************************************************************/
 
+using System;
+using System.Globalization;
 using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Text.Unicode;
 
 namespace Versja.Domain
@@ -18,11 +21,13 @@ namespace Versja.Domain
 	/// </summary>
 	public class Version
 	{
+		private static readonly Regex RX_VERSION = new Regex(@"^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)(?:-(?<release>[A-Za-z]+)(?:\.(?<date>\d{8})(?:\.(?<cadence>\d+))?)?)?(?:\+(?<runtime>[A-Za-z0-9.]+))?$");
+			
 		#region Properties
 		/// <summary>
 		/// Date of the version.
 		/// </summary>
-		public DateTime?			Date				{get;set;} = null;
+		public DateTime?			VersionDateTime		{get;set;} = DateTime.Now;
 
 		/// <summary>
 		/// Major number (breaking changes).
@@ -70,17 +75,102 @@ namespace Versja.Domain
 		public bool					IsReleaseProject	{get;set;} = true;
 		#endregion
 
+		/// <summary>
+		/// MAJOR.MINOR.PATCH[-RELEASE_IDENTIFIER][+BUILD_METADATA]
+		/// </summary>
+		/// <returns></returns>
 		public override string ToString()
 		{
-			return base.ToString();
+			if (!this.IsReleaseProject)
+			{
+				return null;
+			}
+
+			string result = $"{this.Major}.{this.Minor}.{this.Patch}";
+
+			string identifier = "";
+
+			switch (this.ReleaseIdentifier)
+			{
+				case ReleaseIdentifier.Alpha:
+				case ReleaseIdentifier.Beta:
+				case ReleaseIdentifier.Patch:
+				case ReleaseIdentifier.Preview:
+				case ReleaseIdentifier.Unstable:
+					identifier = this.ReleaseIdentifier.ToString().ToLower();
+					break;
+
+				case ReleaseIdentifier.ReleaseCandidate:
+					identifier = $"rc{this.RCNumber}";
+					break;
+				
+				case ReleaseIdentifier.Development:
+					identifier = "dev";
+					break;
+
+				case ReleaseIdentifier.Snapshot:
+				case ReleaseIdentifier.None:
+				default:
+					break;
+			}
+
+
+			// 1.2.0-beta.20260515.1
+			if (!System.String.IsNullOrEmpty(identifier))
+			{
+				result += $"-{identifier}";
+			}
+
+			string datetime = $"{this.VersionDateTime:yyyyMMdd}.{this.Cadence}";
+
+			result += $".{datetime}";
+
+			if (!System.String.IsNullOrEmpty(this.RuntimeTarget))
+			{
+				result += $"+{this.RuntimeTarget}";
+			}
+
+			return result;
 		}
 
 		public static Version Parse(string source)
 		{
-			throw new NotImplementedException();
+			Version version = new Version();
+
+			Match match	= RX_VERSION.Match(source);
+
+			string major	= match.Groups["major"].Value;
+			string minor	= match.Groups["minor"].Value;
+			string patch	= match.Groups["patch"].Value;
+			string release	= match.Groups["release"].Value;
+			string date		= match.Groups["date"].Value;
+			string cadence	= match.Groups["cadence"].Value;
+			string runtime	= match.Groups["runtime"].Value;
+
+			version.Major	= Int32.Parse(major);
+			version.Minor	= Int32.Parse(minor);
+			version.Patch	= Int32.Parse(patch);
+
+			version.ReleaseIdentifier	= GetReleaseIdentifier(release);
+
+			version.RuntimeTarget	= runtime;
+
+			try
+			{
+				version.Cadence	= Int32.Parse(cadence);
+			}
+			catch (Exception)	{}
+
+			try
+			{
+				version.VersionDateTime	= DateTime.ParseExact(date, "yyyyMMdd", CultureInfo.InvariantCulture);
+			}
+			catch (Exception)	{}
+
+			return version;
 		}
 
-
+		#region Json & I/O
 		public static bool TryParse(string source, out Version version)
 		{
 			try
@@ -120,6 +210,37 @@ namespace Versja.Domain
 			string json = reader.ReadToEnd();
 
 			return FromJson(json);
+		}
+		#endregion
+
+		private static ReleaseIdentifier GetReleaseIdentifier(string source)
+		{
+			if (String.IsNullOrEmpty(source))
+			{
+				return ReleaseIdentifier.None;
+			}
+
+			if (source.ToLower().StartsWith("rc"))
+			{
+				return ReleaseIdentifier.ReleaseCandidate;
+			}
+
+			switch (source.ToLower())
+			{
+				case "alpha":
+				case "beta":
+				case "patch":
+				case "preview":
+				case "unstable":
+					source = source.Substring(0, 1).ToUpper() + source.Substring(1);
+					return Enum.Parse<ReleaseIdentifier>(source);
+
+				case "dev":
+					return ReleaseIdentifier.Development;
+
+				default:
+					return ReleaseIdentifier.None;
+			}
 		}
 	}
 }
