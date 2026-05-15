@@ -7,7 +7,6 @@
 * Copyright:    pikkatech.eu (www.pikkatech.eu)                                    *
 ***********************************************************************************/
 
-using System;
 using System.Globalization;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -22,7 +21,8 @@ namespace Versja.Domain
 	public class Version
 	{
 		private static readonly Regex RX_VERSION = new Regex(@"^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)(?:-(?<release>[A-Za-z0-9]+)(?:\.(?<date>\d{8})(?:\.(?<cadence>\d+))?)?)?(?:\+(?<runtime>[A-Za-z0-9.]+))?$");
-			
+		private static readonly Regex RX_RCNUMBER	= new Regex(@"\d+");
+
 		#region Properties
 		/// <summary>
 		/// Date of the version.
@@ -177,8 +177,7 @@ namespace Versja.Domain
 
 		private static int GetReleaseCandidateNumber(string release)
 		{
-			Regex rx_RCNumber = new Regex(@"\d+");
-			Match match = rx_RCNumber.Match(release);
+			Match match			= RX_RCNUMBER.Match(release);
 
 			try
 			{
