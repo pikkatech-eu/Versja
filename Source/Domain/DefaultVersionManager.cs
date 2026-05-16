@@ -137,7 +137,6 @@ namespace Versja.Domain
 					this.Version.RuntimeTarget	= targets[0];
 				}
 			}
-
 		}
 
 		public void InjectVersion()
