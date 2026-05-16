@@ -45,7 +45,7 @@ namespace Versja.Gui.Controls
 				version.RCNumber			= (int)this._nudRCNumber.Value;
 				version.RuntimeTarget		= this._txTarget.Text;
 				version.GitShaCode			= this._txShaCode.Text;
-
+				version.Cadence				= Int32.Parse(this._lblCadence.Text);
 				return version;
 			}
 

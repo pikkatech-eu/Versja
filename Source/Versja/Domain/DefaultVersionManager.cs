@@ -19,6 +19,7 @@ namespace Versja.Domain
 		public string WorkingDirectory		{get;set;} = "";
 		public string ProjectFileName		{get;set;} = "";
 		public Version Version				{get;set;} = null;
+		public Settings Settings			{get;set;} = new Settings();
 		#endregion
 
 		public DefaultVersionManager(string workingDirectory = "")
@@ -163,6 +164,21 @@ namespace Versja.Domain
 			xIsReleaseProject.Value		= this.Version.IsReleaseProject.ToString();
 
 			x.Save(this.ProjectFileName);
+		}
+
+		public void LoadSettings()
+		{
+			this.Settings = Settings.Load();
+		}
+
+		public void SaveSettings()
+		{
+			this.Settings.Save();
+		}
+
+		public void EditSettings()
+		{
+
 		}
 	}
 }

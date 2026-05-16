@@ -15,6 +15,7 @@ namespace Versja.Domain
 		string WorkingDirectory		{get;set;}
 		string ProjectFileName		{get;set;}
 		Version Version				{get;set;}
+		Settings Settings			{get;set;}
 		#endregion
 
 		void GetProjectFileName();
@@ -24,5 +25,9 @@ namespace Versja.Domain
 		void IncrementVersion();
 		void ExtractVersion();
 		void InjectVersion();
+
+		void LoadSettings();
+		void SaveSettings();
+		void EditSettings();
 	}
 }

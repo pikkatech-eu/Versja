@@ -35,15 +35,19 @@
 			this.toolStripSeparator1 = new ToolStripSeparator();
 			this.quitToolStripMenuItem = new ToolStripMenuItem();
 			this.statusStrip1 = new StatusStrip();
+			this._lblInfo = new ToolStripStatusLabel();
 			this.toolStrip1 = new ToolStrip();
 			this._ctrlVersion = new Versja.Gui.Controls.VersionControl();
+			this.toolsToolStripMenuItem = new ToolStripMenuItem();
+			this.settingsToolStripMenuItem = new ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
+			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
 			// 
 			this.menuStrip1.ImageScalingSize = new Size(20, 20);
-			this.menuStrip1.Items.AddRange(new ToolStripItem[] { this.projectToolStripMenuItem });
+			this.menuStrip1.Items.AddRange(new ToolStripItem[] { this.projectToolStripMenuItem, this.toolsToolStripMenuItem });
 			this.menuStrip1.Location = new Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new Size(598, 29);
@@ -86,11 +90,19 @@
 			// statusStrip1
 			// 
 			this.statusStrip1.ImageScalingSize = new Size(20, 20);
-			this.statusStrip1.Location = new Point(0, 438);
+			this.statusStrip1.Items.AddRange(new ToolStripItem[] { this._lblInfo });
+			this.statusStrip1.Location = new Point(0, 429);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new Size(598, 22);
+			this.statusStrip1.Size = new Size(598, 31);
 			this.statusStrip1.TabIndex = 1;
 			this.statusStrip1.Text = "statusStrip1";
+			// 
+			// _lblInfo
+			// 
+			this._lblInfo.Font = new Font("Segoe UI", 11F);
+			this._lblInfo.Name = "_lblInfo";
+			this._lblInfo.Size = new Size(71, 25);
+			this._lblInfo.Text = "ready...";
 			// 
 			// toolStrip1
 			// 
@@ -111,6 +123,20 @@
 			this._ctrlVersion.Size = new Size(598, 321);
 			this._ctrlVersion.TabIndex = 3;
 			// 
+			// toolsToolStripMenuItem
+			// 
+			this.toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { this.settingsToolStripMenuItem });
+			this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+			this.toolsToolStripMenuItem.Size = new Size(59, 25);
+			this.toolsToolStripMenuItem.Text = "&Tools";
+			// 
+			// settingsToolStripMenuItem
+			// 
+			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+			this.settingsToolStripMenuItem.Size = new Size(224, 26);
+			this.settingsToolStripMenuItem.Text = "&Settings";
+			this.settingsToolStripMenuItem.Click += this.OnToolsSettings;
+			// 
 			// VersjaForm
 			// 
 			this.AutoScaleDimensions = new SizeF(11F, 28F);
@@ -128,6 +154,8 @@
 			this.Text = "Versja 1.0.0";
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
+			this.statusStrip1.ResumeLayout(false);
+			this.statusStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
@@ -143,5 +171,8 @@
 		private ToolStripSeparator toolStripSeparator1;
 		private ToolStripMenuItem quitToolStripMenuItem;
 		private Gui.Controls.VersionControl _ctrlVersion;
+		private ToolStripStatusLabel _lblInfo;
+		private ToolStripMenuItem toolsToolStripMenuItem;
+		private ToolStripMenuItem settingsToolStripMenuItem;
 	}
 }
