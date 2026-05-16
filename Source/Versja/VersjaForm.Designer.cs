@@ -60,33 +60,33 @@
 			// loadToolStripMenuItem
 			// 
 			this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-			this.loadToolStripMenuItem.Size = new Size(224, 26);
+			this.loadToolStripMenuItem.Size = new Size(128, 26);
 			this.loadToolStripMenuItem.Text = "&Load";
 			this.loadToolStripMenuItem.Click += this.OnProjectLoad;
 			// 
 			// editToolStripMenuItem
 			// 
 			this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-			this.editToolStripMenuItem.Size = new Size(224, 26);
+			this.editToolStripMenuItem.Size = new Size(128, 26);
 			this.editToolStripMenuItem.Text = "&Save";
 			this.editToolStripMenuItem.Click += this.OnProjectSave;
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new Size(221, 6);
+			this.toolStripSeparator1.Size = new Size(125, 6);
 			// 
 			// quitToolStripMenuItem
 			// 
 			this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-			this.quitToolStripMenuItem.Size = new Size(224, 26);
+			this.quitToolStripMenuItem.Size = new Size(128, 26);
 			this.quitToolStripMenuItem.Text = "&Quit";
 			this.quitToolStripMenuItem.Click += this.OnProjectQuit;
 			// 
 			// statusStrip1
 			// 
 			this.statusStrip1.ImageScalingSize = new Size(20, 20);
-			this.statusStrip1.Location = new Point(0, 327);
+			this.statusStrip1.Location = new Point(0, 438);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.Size = new Size(598, 22);
 			this.statusStrip1.TabIndex = 1;
@@ -103,18 +103,19 @@
 			// 
 			// _ctrlVersion
 			// 
+			this._ctrlVersion.Dock = DockStyle.Top;
 			this._ctrlVersion.Font = new Font("Consolas", 10F);
 			this._ctrlVersion.Location = new Point(0, 54);
 			this._ctrlVersion.Margin = new Padding(0);
 			this._ctrlVersion.Name = "_ctrlVersion";
-			this._ctrlVersion.Size = new Size(584, 269);
+			this._ctrlVersion.Size = new Size(598, 321);
 			this._ctrlVersion.TabIndex = 3;
 			// 
 			// VersjaForm
 			// 
 			this.AutoScaleDimensions = new SizeF(11F, 28F);
 			this.AutoScaleMode = AutoScaleMode.Font;
-			this.ClientSize = new Size(598, 349);
+			this.ClientSize = new Size(598, 460);
 			this.Controls.Add(this._ctrlVersion);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.statusStrip1);

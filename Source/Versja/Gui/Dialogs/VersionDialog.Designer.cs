@@ -38,7 +38,7 @@
 			// 
 			this._btOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
 			this._btOk.DialogResult = DialogResult.OK;
-			this._btOk.Location = new Point(12, 285);
+			this._btOk.Location = new Point(12, 393);
 			this._btOk.Margin = new Padding(0);
 			this._btOk.Name = "_btOk";
 			this._btOk.Size = new Size(80, 32);
@@ -51,7 +51,7 @@
 			// 
 			this._btCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
 			this._btCancel.DialogResult = DialogResult.Cancel;
-			this._btCancel.Location = new Point(108, 285);
+			this._btCancel.Location = new Point(108, 393);
 			this._btCancel.Margin = new Padding(0);
 			this._btCancel.Name = "_btCancel";
 			this._btCancel.Size = new Size(80, 32);
@@ -67,7 +67,7 @@
 			this._ctrlVersion.Location = new Point(0, 0);
 			this._ctrlVersion.Margin = new Padding(0, 0, 3, 0);
 			this._ctrlVersion.Name = "_ctrlVersion";
-			this._ctrlVersion.Size = new Size(655, 265);
+			this._ctrlVersion.Size = new Size(655, 324);
 			this._ctrlVersion.TabIndex = 2;
 			// 
 			// VersionDialog
@@ -76,7 +76,7 @@
 			this.AutoScaleDimensions = new SizeF(9F, 23F);
 			this.AutoScaleMode = AutoScaleMode.Font;
 			this.CancelButton = this._btCancel;
-			this.ClientSize = new Size(658, 325);
+			this.ClientSize = new Size(658, 433);
 			this.Controls.Add(this._ctrlVersion);
 			this.Controls.Add(this._btCancel);
 			this.Controls.Add(this._btOk);

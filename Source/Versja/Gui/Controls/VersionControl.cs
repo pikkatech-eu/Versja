@@ -25,6 +25,8 @@ namespace Versja.Gui.Controls
 
 			this._cxReleaseIdentifier.DataSource = Enum.GetValues<ReleaseIdentifier>();
 			this._cxReleaseIdentifier.SelectedItem = ReleaseIdentifier.None;
+
+			this._lblDate.Text	= DateTime.Today.ToString("yyyy-MM-dd");
 		}
 
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -58,6 +60,8 @@ namespace Versja.Gui.Controls
 				this._nudRCNumber.Value					= value.RCNumber;
 				this._txTarget.Text						= value.RuntimeTarget;
 				this._txShaCode.Text					= value.GitShaCode;
+				this._lblDate.Text						= $"{value.VersionDateTime:yyyy-MM-dd}";
+				this._lblCadence.Text					= value.Cadence.ToString();
 			}
 
 		}

@@ -49,6 +49,10 @@
 			this.label8 = new Label();
 			this.label9 = new Label();
 			this.label10 = new Label();
+			this.label11 = new Label();
+			this.label12 = new Label();
+			this._lblDate = new Label();
+			this._lblCadence = new Label();
 			this._tlpVersion.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)this._nudMajor).BeginInit();
 			((System.ComponentModel.ISupportInitialize)this._nudMinor).BeginInit();
@@ -62,31 +66,37 @@
 			this._tlpVersion.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 108F));
 			this._tlpVersion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 53.05466F));
 			this._tlpVersion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.94534F));
-			this._tlpVersion.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 47F));
+			this._tlpVersion.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 48F));
 			this._tlpVersion.Controls.Add(this._cbIsReleaseProject, 1, 0);
 			this._tlpVersion.Controls.Add(this.label1, 0, 1);
 			this._tlpVersion.Controls.Add(this.label2, 0, 2);
 			this._tlpVersion.Controls.Add(this.label3, 0, 3);
 			this._tlpVersion.Controls.Add(this._cbAutoincrementPatch, 1, 4);
-			this._tlpVersion.Controls.Add(this._cxReleaseIdentifier, 1, 5);
-			this._tlpVersion.Controls.Add(this.label4, 0, 5);
-			this._tlpVersion.Controls.Add(this.label5, 0, 6);
-			this._tlpVersion.Controls.Add(this.label6, 0, 7);
-			this._tlpVersion.Controls.Add(this.label7, 0, 8);
+			this._tlpVersion.Controls.Add(this._cxReleaseIdentifier, 1, 7);
+			this._tlpVersion.Controls.Add(this.label4, 0, 7);
+			this._tlpVersion.Controls.Add(this.label5, 0, 8);
+			this._tlpVersion.Controls.Add(this.label6, 0, 9);
+			this._tlpVersion.Controls.Add(this.label7, 0, 10);
 			this._tlpVersion.Controls.Add(this._nudMajor, 1, 1);
 			this._tlpVersion.Controls.Add(this._nudMinor, 1, 2);
 			this._tlpVersion.Controls.Add(this._nudPatch, 1, 3);
-			this._tlpVersion.Controls.Add(this._nudRCNumber, 1, 6);
-			this._tlpVersion.Controls.Add(this._txTarget, 1, 7);
-			this._tlpVersion.Controls.Add(this._txShaCode, 1, 8);
-			this._tlpVersion.Controls.Add(this._btShaCode, 3, 8);
+			this._tlpVersion.Controls.Add(this._nudRCNumber, 1, 8);
+			this._tlpVersion.Controls.Add(this._txTarget, 1, 9);
+			this._tlpVersion.Controls.Add(this._txShaCode, 1, 10);
+			this._tlpVersion.Controls.Add(this._btShaCode, 3, 10);
 			this._tlpVersion.Controls.Add(this.label8, 2, 1);
 			this._tlpVersion.Controls.Add(this.label9, 2, 2);
 			this._tlpVersion.Controls.Add(this.label10, 2, 3);
+			this._tlpVersion.Controls.Add(this.label11, 0, 5);
+			this._tlpVersion.Controls.Add(this.label12, 0, 6);
+			this._tlpVersion.Controls.Add(this._lblDate, 1, 5);
+			this._tlpVersion.Controls.Add(this._lblCadence, 1, 6);
 			this._tlpVersion.Dock = DockStyle.Fill;
 			this._tlpVersion.Location = new Point(0, 0);
 			this._tlpVersion.Name = "_tlpVersion";
-			this._tlpVersion.RowCount = 10;
+			this._tlpVersion.RowCount = 12;
+			this._tlpVersion.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+			this._tlpVersion.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
 			this._tlpVersion.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
 			this._tlpVersion.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
 			this._tlpVersion.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
@@ -166,7 +176,7 @@
 			this._cxReleaseIdentifier.Dock = DockStyle.Fill;
 			this._cxReleaseIdentifier.DropDownStyle = ComboBoxStyle.DropDownList;
 			this._cxReleaseIdentifier.FormattingEnabled = true;
-			this._cxReleaseIdentifier.Location = new Point(111, 143);
+			this._cxReleaseIdentifier.Location = new Point(111, 199);
 			this._cxReleaseIdentifier.Name = "_cxReleaseIdentifier";
 			this._cxReleaseIdentifier.Size = new Size(305, 28);
 			this._cxReleaseIdentifier.TabIndex = 5;
@@ -176,7 +186,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Dock = DockStyle.Fill;
-			this.label4.Location = new Point(3, 140);
+			this.label4.Location = new Point(3, 196);
 			this.label4.Name = "label4";
 			this.label4.Size = new Size(102, 32);
 			this.label4.TabIndex = 6;
@@ -187,7 +197,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Dock = DockStyle.Fill;
-			this.label5.Location = new Point(3, 172);
+			this.label5.Location = new Point(3, 228);
 			this.label5.Name = "label5";
 			this.label5.Size = new Size(102, 28);
 			this.label5.TabIndex = 7;
@@ -198,7 +208,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Dock = DockStyle.Fill;
-			this.label6.Location = new Point(3, 200);
+			this.label6.Location = new Point(3, 256);
 			this.label6.Name = "label6";
 			this.label6.Size = new Size(102, 28);
 			this.label6.TabIndex = 8;
@@ -209,7 +219,7 @@
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Dock = DockStyle.Fill;
-			this.label7.Location = new Point(3, 228);
+			this.label7.Location = new Point(3, 284);
 			this.label7.Name = "label7";
 			this.label7.Size = new Size(102, 28);
 			this.label7.TabIndex = 9;
@@ -245,7 +255,7 @@
 			// _nudRCNumber
 			// 
 			this._nudRCNumber.Dock = DockStyle.Fill;
-			this._nudRCNumber.Location = new Point(111, 175);
+			this._nudRCNumber.Location = new Point(111, 231);
 			this._nudRCNumber.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 			this._nudRCNumber.Name = "_nudRCNumber";
 			this._nudRCNumber.Size = new Size(159, 27);
@@ -256,7 +266,7 @@
 			// 
 			this._tlpVersion.SetColumnSpan(this._txTarget, 2);
 			this._txTarget.Dock = DockStyle.Fill;
-			this._txTarget.Location = new Point(111, 203);
+			this._txTarget.Location = new Point(111, 259);
 			this._txTarget.Name = "_txTarget";
 			this._txTarget.Size = new Size(305, 27);
 			this._txTarget.TabIndex = 14;
@@ -265,7 +275,7 @@
 			// 
 			this._tlpVersion.SetColumnSpan(this._txShaCode, 2);
 			this._txShaCode.Dock = DockStyle.Fill;
-			this._txShaCode.Location = new Point(111, 231);
+			this._txShaCode.Location = new Point(111, 287);
 			this._txShaCode.Name = "_txShaCode";
 			this._txShaCode.Size = new Size(305, 27);
 			this._txShaCode.TabIndex = 15;
@@ -273,7 +283,7 @@
 			// _btShaCode
 			// 
 			this._btShaCode.Dock = DockStyle.Fill;
-			this._btShaCode.Location = new Point(419, 228);
+			this._btShaCode.Location = new Point(419, 284);
 			this._btShaCode.Margin = new Padding(0);
 			this._btShaCode.Name = "_btShaCode";
 			this._btShaCode.Size = new Size(48, 28);
@@ -321,6 +331,50 @@
 			this.label10.Text = "Bug Fixes";
 			this.label10.TextAlign = ContentAlignment.MiddleLeft;
 			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Dock = DockStyle.Fill;
+			this.label11.Location = new Point(3, 140);
+			this.label11.Name = "label11";
+			this.label11.Size = new Size(102, 28);
+			this.label11.TabIndex = 20;
+			this.label11.Text = "Date";
+			this.label11.TextAlign = ContentAlignment.MiddleRight;
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Dock = DockStyle.Fill;
+			this.label12.Location = new Point(3, 168);
+			this.label12.Name = "label12";
+			this.label12.Size = new Size(102, 28);
+			this.label12.TabIndex = 21;
+			this.label12.Text = "Cadence";
+			this.label12.TextAlign = ContentAlignment.MiddleRight;
+			// 
+			// _lblDate
+			// 
+			this._lblDate.AutoSize = true;
+			this._lblDate.Dock = DockStyle.Fill;
+			this._lblDate.Location = new Point(111, 140);
+			this._lblDate.Name = "_lblDate";
+			this._lblDate.Size = new Size(159, 28);
+			this._lblDate.TabIndex = 22;
+			this._lblDate.Text = "****";
+			this._lblDate.TextAlign = ContentAlignment.MiddleLeft;
+			// 
+			// _lblCadence
+			// 
+			this._lblCadence.AutoSize = true;
+			this._lblCadence.Dock = DockStyle.Fill;
+			this._lblCadence.Location = new Point(111, 168);
+			this._lblCadence.Name = "_lblCadence";
+			this._lblCadence.Size = new Size(159, 28);
+			this._lblCadence.TabIndex = 23;
+			this._lblCadence.Text = "1";
+			this._lblCadence.TextAlign = ContentAlignment.MiddleLeft;
+			// 
 			// VersionControl
 			// 
 			this.AutoScaleDimensions = new SizeF(9F, 20F);
@@ -363,5 +417,9 @@
 		private Label label8;
 		private Label label9;
 		private Label label10;
+		private Label label11;
+		private Label label12;
+		private Label _lblDate;
+		private Label _lblCadence;
 	}
 }
