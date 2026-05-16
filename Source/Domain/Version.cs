@@ -20,7 +20,7 @@ namespace Versja.Domain
 	/// </summary>
 	public class Version
 	{
-		private static readonly Regex RX_VERSION = new Regex(@"^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)(?:-(?<release>[A-Za-z0-9]+)(?:\.(?<date>\d{8})(?:\.(?<cadence>\d+))?)?)?(?:\+(?<runtime>[A-Za-z0-9.]+))?$");
+		private static readonly Regex RX_VERSION = new Regex(@"^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)(?:-?(?<release>[A-Za-z0-9]*)(?:\.(?<date>\d{8})(?:\.(?<cadence>\d+))?)?)?(?:\+(?<runtime>[-A-Za-z0-9.]+))?$");
 		private static readonly Regex RX_RCNUMBER	= new Regex(@"\d+");
 
 		#region Properties
@@ -68,6 +68,11 @@ namespace Versja.Domain
 		/// Optional Git SHA-1 code.
 		/// </summary>
 		public string				GitShaCode			{get;set;} = null;
+
+		/// <summary>
+		/// If set to true, will auto increment patch.
+		/// </summary>
+		public bool					AutoIncrementPatch	{get;set;} = false;
 
 		/// <summary>
 		/// Indicates if the project should be mentioned in a future solution-centric versioning project.

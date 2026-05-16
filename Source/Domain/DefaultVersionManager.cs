@@ -33,7 +33,7 @@ namespace Versja.Domain
 
 		public void GetProjectFileName()
 		{
-			string[] fileNames = Directory.GetFiles(this.WorkingDirectory, ".csproj");
+			string[] fileNames = Directory.GetFiles(this.WorkingDirectory, "*.csproj");
 
 			if (fileNames.Length == 1)
 			{
@@ -77,7 +77,11 @@ namespace Versja.Domain
 				case ReleaseIdentifier.Preview:
 				case ReleaseIdentifier.Unstable:
 				case ReleaseIdentifier.Development:
-					this.Version.Patch++;
+					if (this.Version.AutoIncrementPatch)
+					{
+						this.Version.Patch++;
+					}
+					
 					break;
 
 				case ReleaseIdentifier.ReleaseCandidate:
@@ -108,22 +112,32 @@ namespace Versja.Domain
 
 			XElement xGroup = x.Elements("PropertyGroup").FirstOrDefault(xg => xg.Element("Version") != null);
 
-			if (xGroup != null)
+			if (xGroup == null)
 			{
-				if (xGroup.Element("Version") != null)
-				{
-					string sVersion	= xGroup.Element("Version").Value;
-					this.Version	= Version.Parse(sVersion);
-				}
-				else
-				{
-					this.CreateVersion();
-				}
+				xGroup = x.Elements("PropertyGroup").First();
+			}
+
+			if (xGroup.Element("Version") != null)
+			{
+				string sVersion	= xGroup.Element("Version").Value;
+				this.Version	= Version.Parse(sVersion);
 			}
 			else
 			{
 				this.CreateVersion();
 			}
+
+			if (xGroup.Element("TargetFramework") != null)
+			{
+				string target					= xGroup.Element("TargetFramework").Value;
+
+				if (!String.IsNullOrEmpty(target))
+				{
+					string[] targets			= target.Split(';');
+					this.Version.RuntimeTarget	= targets[0];
+				}
+			}
+
 		}
 
 		public void InjectVersion()
@@ -137,11 +151,22 @@ namespace Versja.Domain
 			if (xGroup == null)
 			{
 				xGroup = x.Elements("PropertyGroup").First();
-				xGroup.Add(new XElement("Version"));
 			}
 
-			XElement xVersion = xGroup.Element("Version");
-			xVersion.Value = sVersion;
+			if (xGroup.Element("Version") == null)
+			{
+				xGroup.Add(new XElement("Version"));
+			}
+			
+			if (xGroup.Element("IsReleaseProject") == null)
+			{
+				xGroup.Add(new XElement("IsReleaseProject"));
+			}
+			
+			XElement xVersion			= xGroup.Element("Version");
+			xVersion.Value				= sVersion;
+			XElement xIsReleaseProject	= xGroup.Element("IsReleaseProject");
+			xIsReleaseProject.Value		= this.Version.IsReleaseProject.ToString();
 
 			x.Save(this.ProjectFileName);
 		}
