@@ -1,4 +1,4 @@
-﻿namespace Versja.Domain.GUI.Controls
+﻿namespace Versja.Gui.Controls
 {
 	partial class VersionControl
 	{
@@ -46,6 +46,9 @@
 			this._txTarget = new TextBox();
 			this._txShaCode = new TextBox();
 			this._btShaCode = new Button();
+			this.label8 = new Label();
+			this.label9 = new Label();
+			this.label10 = new Label();
 			this._tlpVersion.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)this._nudMajor).BeginInit();
 			((System.ComponentModel.ISupportInitialize)this._nudMinor).BeginInit();
@@ -57,8 +60,8 @@
 			// 
 			this._tlpVersion.ColumnCount = 4;
 			this._tlpVersion.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 108F));
-			this._tlpVersion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-			this._tlpVersion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+			this._tlpVersion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 53.05466F));
+			this._tlpVersion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.94534F));
 			this._tlpVersion.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 47F));
 			this._tlpVersion.Controls.Add(this._cbIsReleaseProject, 1, 0);
 			this._tlpVersion.Controls.Add(this.label1, 0, 1);
@@ -77,6 +80,9 @@
 			this._tlpVersion.Controls.Add(this._txTarget, 1, 7);
 			this._tlpVersion.Controls.Add(this._txShaCode, 1, 8);
 			this._tlpVersion.Controls.Add(this._btShaCode, 3, 8);
+			this._tlpVersion.Controls.Add(this.label8, 2, 1);
+			this._tlpVersion.Controls.Add(this.label9, 2, 2);
+			this._tlpVersion.Controls.Add(this.label10, 2, 3);
 			this._tlpVersion.Dock = DockStyle.Fill;
 			this._tlpVersion.Location = new Point(0, 0);
 			this._tlpVersion.Name = "_tlpVersion";
@@ -103,7 +109,7 @@
 			this._cbIsReleaseProject.Dock = DockStyle.Fill;
 			this._cbIsReleaseProject.Location = new Point(111, 3);
 			this._cbIsReleaseProject.Name = "_cbIsReleaseProject";
-			this._cbIsReleaseProject.Size = new Size(306, 22);
+			this._cbIsReleaseProject.Size = new Size(305, 22);
 			this._cbIsReleaseProject.TabIndex = 0;
 			this._cbIsReleaseProject.Text = "Release Project?";
 			this._cbIsReleaseProject.UseVisualStyleBackColor = true;
@@ -149,7 +155,7 @@
 			this._cbAutoincrementPatch.Dock = DockStyle.Fill;
 			this._cbAutoincrementPatch.Location = new Point(111, 115);
 			this._cbAutoincrementPatch.Name = "_cbAutoincrementPatch";
-			this._cbAutoincrementPatch.Size = new Size(306, 22);
+			this._cbAutoincrementPatch.Size = new Size(305, 22);
 			this._cbAutoincrementPatch.TabIndex = 4;
 			this._cbAutoincrementPatch.Text = "Autoincrement Patch";
 			this._cbAutoincrementPatch.UseVisualStyleBackColor = true;
@@ -162,7 +168,7 @@
 			this._cxReleaseIdentifier.FormattingEnabled = true;
 			this._cxReleaseIdentifier.Location = new Point(111, 143);
 			this._cxReleaseIdentifier.Name = "_cxReleaseIdentifier";
-			this._cxReleaseIdentifier.Size = new Size(306, 28);
+			this._cxReleaseIdentifier.Size = new Size(305, 28);
 			this._cxReleaseIdentifier.TabIndex = 5;
 			this._cxReleaseIdentifier.SelectedIndexChanged += this.OnReleaseIdentifierChanged;
 			// 
@@ -216,7 +222,7 @@
 			this._nudMajor.Location = new Point(111, 31);
 			this._nudMajor.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 			this._nudMajor.Name = "_nudMajor";
-			this._nudMajor.Size = new Size(150, 27);
+			this._nudMajor.Size = new Size(159, 27);
 			this._nudMajor.TabIndex = 10;
 			this._nudMajor.Value = new decimal(new int[] { 1, 0, 0, 0 });
 			// 
@@ -225,14 +231,15 @@
 			this._nudMinor.Dock = DockStyle.Fill;
 			this._nudMinor.Location = new Point(111, 59);
 			this._nudMinor.Name = "_nudMinor";
-			this._nudMinor.Size = new Size(150, 27);
+			this._nudMinor.Size = new Size(159, 27);
 			this._nudMinor.TabIndex = 11;
 			// 
 			// _nudPatch
 			// 
+			this._nudPatch.Dock = DockStyle.Fill;
 			this._nudPatch.Location = new Point(111, 87);
 			this._nudPatch.Name = "_nudPatch";
-			this._nudPatch.Size = new Size(150, 27);
+			this._nudPatch.Size = new Size(159, 27);
 			this._nudPatch.TabIndex = 12;
 			// 
 			// _nudRCNumber
@@ -241,16 +248,17 @@
 			this._nudRCNumber.Location = new Point(111, 175);
 			this._nudRCNumber.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 			this._nudRCNumber.Name = "_nudRCNumber";
-			this._nudRCNumber.Size = new Size(150, 27);
+			this._nudRCNumber.Size = new Size(159, 27);
 			this._nudRCNumber.TabIndex = 13;
 			this._nudRCNumber.Value = new decimal(new int[] { 1, 0, 0, 0 });
 			// 
 			// _txTarget
 			// 
+			this._tlpVersion.SetColumnSpan(this._txTarget, 2);
 			this._txTarget.Dock = DockStyle.Fill;
 			this._txTarget.Location = new Point(111, 203);
 			this._txTarget.Name = "_txTarget";
-			this._txTarget.Size = new Size(150, 27);
+			this._txTarget.Size = new Size(305, 27);
 			this._txTarget.TabIndex = 14;
 			// 
 			// _txShaCode
@@ -259,20 +267,59 @@
 			this._txShaCode.Dock = DockStyle.Fill;
 			this._txShaCode.Location = new Point(111, 231);
 			this._txShaCode.Name = "_txShaCode";
-			this._txShaCode.Size = new Size(306, 27);
+			this._txShaCode.Size = new Size(305, 27);
 			this._txShaCode.TabIndex = 15;
 			// 
 			// _btShaCode
 			// 
 			this._btShaCode.Dock = DockStyle.Fill;
-			this._btShaCode.Location = new Point(420, 228);
+			this._btShaCode.Location = new Point(419, 228);
 			this._btShaCode.Margin = new Padding(0);
 			this._btShaCode.Name = "_btShaCode";
-			this._btShaCode.Size = new Size(47, 28);
+			this._btShaCode.Size = new Size(48, 28);
 			this._btShaCode.TabIndex = 16;
 			this._btShaCode.Text = "...";
 			this._btShaCode.UseVisualStyleBackColor = true;
 			this._btShaCode.Click += this.OnShaCodeSearch;
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this._tlpVersion.SetColumnSpan(this.label8, 2);
+			this.label8.Dock = DockStyle.Fill;
+			this.label8.Location = new Point(276, 28);
+			this.label8.Name = "label8";
+			this.label8.Padding = new Padding(0, 0, 3, 0);
+			this.label8.Size = new Size(188, 28);
+			this.label8.TabIndex = 17;
+			this.label8.Text = "Breaking changes";
+			this.label8.TextAlign = ContentAlignment.MiddleLeft;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this._tlpVersion.SetColumnSpan(this.label9, 2);
+			this.label9.Dock = DockStyle.Fill;
+			this.label9.Location = new Point(276, 56);
+			this.label9.Name = "label9";
+			this.label9.Padding = new Padding(0, 0, 3, 0);
+			this.label9.Size = new Size(188, 28);
+			this.label9.TabIndex = 18;
+			this.label9.Text = "New features";
+			this.label9.TextAlign = ContentAlignment.MiddleLeft;
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this._tlpVersion.SetColumnSpan(this.label10, 2);
+			this.label10.Dock = DockStyle.Fill;
+			this.label10.Location = new Point(276, 84);
+			this.label10.Name = "label10";
+			this.label10.Padding = new Padding(0, 0, 3, 0);
+			this.label10.Size = new Size(188, 28);
+			this.label10.TabIndex = 19;
+			this.label10.Text = "Bug Fixes";
+			this.label10.TextAlign = ContentAlignment.MiddleLeft;
 			// 
 			// VersionControl
 			// 
@@ -313,5 +360,8 @@
 		private TextBox _txTarget;
 		private TextBox _txShaCode;
 		private Button _btShaCode;
+		private Label label8;
+		private Label label9;
+		private Label label10;
 	}
 }

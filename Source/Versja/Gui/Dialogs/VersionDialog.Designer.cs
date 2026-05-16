@@ -1,4 +1,4 @@
-﻿namespace Versja.Domain.GUI.Dialogs
+﻿namespace Versja.Gui.Dialogs
 {
 	partial class VersionDialog
 	{
@@ -31,7 +31,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VersionDialog));
 			this._btOk = new Button();
 			this._btCancel = new Button();
-			this._ctrlVersion = new Versja.Domain.GUI.Controls.VersionControl();
+			this._ctrlVersion = new Versja.Gui.Controls.VersionControl();
 			this.SuspendLayout();
 			// 
 			// _btOk

@@ -8,8 +8,10 @@
 ***********************************************************************************/
 
 using System.ComponentModel;
+using Versja.Domain;
+using VD = Versja.Domain;
 
-namespace Versja.Domain.GUI.Controls
+namespace Versja.Gui.Controls
 {
 	public partial class VersionControl : UserControl
 	{
@@ -26,11 +28,11 @@ namespace Versja.Domain.GUI.Controls
 		}
 
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public Version Version
+		public VD.Version Version
 		{
 			get
 			{
-				Version version = new Version();
+				VD.Version version = new VD.Version();
 
 				version.IsReleaseProject	= this._cbIsReleaseProject.Checked;
 				version.Major				= (int)this._nudMajor.Value;
@@ -67,7 +69,7 @@ namespace Versja.Domain.GUI.Controls
 
 			if (gitFolder != null)
 			{
-				string headsFolderName	= Path.Combine(_gitFolder, _logsRefsHeads);
+				string headsFolderName	= Path.Combine(gitFolder, _gitFolder, _logsRefsHeads);
 
 				string[] heads	= Directory.GetFiles(headsFolderName);
 

@@ -8,8 +8,9 @@
 ***********************************************************************************/
 
 using System.ComponentModel;
+using VD = Versja.Domain;
 
-namespace Versja.Domain.GUI.Dialogs
+namespace Versja.Gui.Dialogs
 {
 	public partial class VersionDialog : Form
 	{
@@ -29,7 +30,7 @@ namespace Versja.Domain.GUI.Dialogs
 		}
 
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public Version Version
+		public VD.Version Version
 		{
 			get	{return this._ctrlVersion.Version;}
 

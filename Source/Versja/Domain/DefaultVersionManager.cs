@@ -7,11 +7,6 @@
 * Copyright:    pikkatech.eu (www.pikkatech.eu)                                    *
 ***********************************************************************************/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace Versja.Domain
@@ -26,7 +21,7 @@ namespace Versja.Domain
 		public Version Version				{get;set;} = null;
 		#endregion
 
-		public DefaultVersionManager(string workingDirectory)
+		public DefaultVersionManager(string workingDirectory = "")
 		{
 			this.WorkingDirectory	= workingDirectory;
 		}
