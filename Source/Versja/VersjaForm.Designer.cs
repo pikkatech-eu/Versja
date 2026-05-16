@@ -1,6 +1,6 @@
 ﻿namespace Versja
 {
-	partial class Form1
+	partial class VersjaForm
 	{
 		/// <summary>
 		///  Required designer variable.
@@ -28,10 +28,18 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Text = "Form1";
+			this.SuspendLayout();
+			// 
+			// VersjaForm
+			// 
+			this.AutoScaleDimensions = new SizeF(11F, 28F);
+			this.AutoScaleMode = AutoScaleMode.Font;
+			this.ClientSize = new Size(978, 600);
+			this.Font = new Font("Segoe UI", 12F);
+			this.Margin = new Padding(4);
+			this.Name = "VersjaForm";
+			this.Text = "Versja 1.0.0";
+			this.ResumeLayout(false);
 		}
 
 		#endregion
