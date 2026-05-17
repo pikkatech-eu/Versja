@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Versja.Application": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\pikkatech.eu\\Projects\\.Net\\Zoo\\fresco\\Code\\Fresco.Domain\\Fresco.Domain.csproj"
+    }
+  }
+}
