@@ -8,8 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <BaseOutputPath>..\..\Binary</BaseOutputPath>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
-    <Version>1.0.2-beta.20260518.5+net9.0</Version>
+    <Version>1.0.3-beta.20260518.6+net9.0</Version>
     <IsReleaseProject>True</IsReleaseProject>
+    <ApplicationIcon>icon_version_white.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;CS0168;CS0414;CS8600;CS8602;CS8603;CS8604;CS8605;CS8618;CS8625;CS8629;CS8714;IDE0028;IDE0090</NoWarn>
@@ -18,6 +19,9 @@
     <NoWarn>1701;1702;CS0168;CS0414;CS8600;CS8602;CS8603;CS8604;CS8605;CS8618;CS8625;CS8629;CS8714;IDE0028;IDE0090</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Versja.Application\Versja.Application.csproj" />
+    <Content Include="icon_version_white.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Versja\Versja.csproj" />
   </ItemGroup>
 </Project>

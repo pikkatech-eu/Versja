@@ -7,11 +7,6 @@
 * Copyright:    pikkatech.eu (www.pikkatech.eu)                                    *
 ***********************************************************************************/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Versja.Domain.GUI.Dialogs;
 using VD = Versja.Domain;
 
@@ -36,6 +31,8 @@ namespace Versja.Configurator
 			VD.Version versionConfig	= this.GetConfigurationVersion();
 
 			VD.Version version			= this.GetVersion(versionConfig);
+
+			Console.WriteLine($"New version: {version}");
 
 			this.WriteToConfigurationFile(version);
 		}

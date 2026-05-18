@@ -1,0 +1,13 @@
+{
+  "VersionDateTime": "2026-05-18T00:00:00",
+  "Major": 1,
+  "Minor": 0,
+  "Patch": 3,
+  "Cadence": 6,
+  "ReleaseIdentifier": "Beta",
+  "RCNumber": 1,
+  "RuntimeTarget": "net9.0",
+  "GitShaCode": "19a81e1dd6b347461bd6aead458b77a34e4c9bcb",
+  "AutoIncrementPatch": true,
+  "IsReleaseProject": true
+}

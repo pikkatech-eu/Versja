@@ -1,0 +1,85 @@
+{
+  "Name": "Versja",
+  "Description": "",
+  "SubmittedOn": "2026-05-18T09:57:15.2285854+02:00",
+  "Issues": {
+    "1": {
+      "IssueId": 1,
+      "Title": "Rename Versja.Application and Versja.Configurator",
+      "Details": "",
+      "SubmittedOn": "2026-05-18T09:58:35.6957426+02:00",
+      "LastUpdated": "2026-05-18T10:20:34.930945+02:00",
+      "Status": "Resolved",
+      "Severity": "Feature",
+      "Priority": "None",
+      "StepsToReproduce": "",
+      "AdditionalInformation": "",
+      "Notes": []
+    },
+    "2": {
+      "IssueId": 2,
+      "Title": "Add icons ",
+      "Details": "In the project files of Versja themselves",
+      "SubmittedOn": "2026-05-18T10:06:29.8180519+02:00",
+      "LastUpdated": "2026-05-18T10:39:51.7955448+02:00",
+      "Status": "Resolved",
+      "Severity": "Feature",
+      "Priority": "None",
+      "StepsToReproduce": "",
+      "AdditionalInformation": "",
+      "Notes": []
+    },
+    "3": {
+      "IssueId": 3,
+      "Title": "Add Console output in Versja\u0027s - will be shown in the oputput window",
+      "Details": "",
+      "SubmittedOn": "2026-05-18T10:07:39.4286946+02:00",
+      "LastUpdated": "2026-05-18T10:07:39.4286781+02:00",
+      "Status": "Open",
+      "Severity": "Feature",
+      "Priority": "Normal",
+      "StepsToReproduce": "",
+      "AdditionalInformation": "",
+      "Notes": []
+    },
+    "4": {
+      "IssueId": 4,
+      "Title": "Merge on main branch",
+      "Details": "",
+      "SubmittedOn": "2026-05-18T10:08:13.9915977+02:00",
+      "LastUpdated": "2026-05-18T10:08:13.9915767+02:00",
+      "Status": "Open",
+      "Severity": "Major",
+      "Priority": "Normal",
+      "StepsToReproduce": "",
+      "AdditionalInformation": "",
+      "Notes": []
+    },
+    "5": {
+      "IssueId": 5,
+      "Title": "Create local repo",
+      "Details": "",
+      "SubmittedOn": "2026-05-18T10:08:27.3404883+02:00",
+      "LastUpdated": "2026-05-18T10:08:27.3404743+02:00",
+      "Status": "Open",
+      "Severity": "Major",
+      "Priority": "Normal",
+      "StepsToReproduce": "",
+      "AdditionalInformation": "",
+      "Notes": []
+    },
+    "6": {
+      "IssueId": 6,
+      "Title": "Change Version output format!",
+      "Details": "NuGet accepts versions such as:\r\n\r\n1.0.0\r\n1.0.1\r\n1.2.3-beta\r\n1.2.3-beta.4\r\n\r\nbut not: 1.0.0.20260518.2\r\n\r\nAlso viable:\r\n1.0.0-build20260518.2\r\n1.0.0-build20260518.2\u002Bnet9.0",
+      "SubmittedOn": "2026-05-18T11:57:24.3832766+02:00",
+      "LastUpdated": "2026-05-18T11:57:24.3832503+02:00",
+      "Status": "Open",
+      "Severity": "Critical",
+      "Priority": "High",
+      "StepsToReproduce": "",
+      "AdditionalInformation": "",
+      "Notes": []
+    }
+  }
+}

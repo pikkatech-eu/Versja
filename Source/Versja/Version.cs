@@ -20,7 +20,7 @@ namespace Versja.Domain
 	/// </summary>
 	public class Version
 	{
-		private static readonly Regex RX_VERSION = new Regex(@"^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)(?:-?(?<release>[A-Za-z0-9]*)(?:\.(?<date>\d{8})(?:\.(?<cadence>\d+))?)?)?(?:\+(?<runtime>[-A-Za-z0-9.]+))?$");
+		private static readonly Regex RX_VERSION	= new Regex(@"^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)(?:-(?<release>[a-zA-Z]+)?(?<release_number>\d{1,8})?(?:\.(?<cadence>\d+))?)?(?:\+(?<runtime>[a-zA-Z0-9\.\-]+))?$");
 		private static readonly Regex RX_RCNUMBER	= new Regex(@"\d+");
 
 		#region Properties
@@ -146,6 +146,9 @@ namespace Versja.Domain
 
 
 			// 1.2.0-beta.20260515.1
+			// 1.2.3-beta
+			// 1.2.3-beta.4
+			// 1.0.0-build20260518.2+net9.0
 			if (!System.String.IsNullOrEmpty(identifier))
 			{
 				result += $"-{identifier}";
@@ -153,7 +156,7 @@ namespace Versja.Domain
 
 			string datetime = $"{this.VersionDateTime:yyyyMMdd}.{this.Cadence}";
 
-			result += $".{datetime}";
+			result += $"{datetime}";
 
 			if (!System.String.IsNullOrEmpty(this.RuntimeTarget))
 			{

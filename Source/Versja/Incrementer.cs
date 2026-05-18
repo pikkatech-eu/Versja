@@ -57,6 +57,8 @@ namespace Versja.Application
 			// Increment Build and Patch in versionConfiguration
 			this.IncrementBuildAndPatch(version);
 
+			Console.WriteLine($"New version: {version}");
+
 			// write to .csproj
 			this.WriteToConfigurationFile(version);
 
