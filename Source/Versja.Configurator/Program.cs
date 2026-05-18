@@ -23,13 +23,6 @@ namespace Versja.Configurator
 
 			Configurator configurator = new Configurator();
 			configurator.Configure(projectFile);
-
-
-			//incrementer.IncrementVersion(projectFile);
-			//// To customize application configuration such as set high DPI settings or default font,
-			//// see https://aka.ms/applicationconfiguration.
-			//ApplicationConfiguration.Initialize();
-			//System.Windows.Forms.Application.Run(new Form1());
 		}
 	}
 }
