@@ -14,20 +14,20 @@ class Program
 {
     static void Main(string[] args)
     {
-        VD.Version version = new VD.Version();
-        version.Major   = 1;
-        version.Minor   = 2;
-        version.Patch   = 42;
-        version.RuntimeTarget   = "net9.0";
-        version.RCNumber    = 5;
-        version.VersionDateTime = DateTime.Today;
-        version.AutoIncrementPatch = true;
-        version.Cadence = 17;
-        version.ReleaseIdentifier = VD.ReleaseIdentifier.Beta;
+        //VD.Version version = new VD.Version();
+        //version.Major   = 1;
+        //version.Minor   = 2;
+        //version.Patch   = 42;
+        //version.RuntimeTarget   = "net9.0";
+        //version.RCNumber    = 5;
+        //version.VersionDateTime = DateTime.Today;
+        //version.AutoIncrementPatch = true;
+        //version.Cadence = 17;
+        //version.ReleaseIdentifier = VD.ReleaseIdentifier.Beta;
 
-        string s = version.ToString();
+        //string s = version.ToString();
 
-        var y = VD.Version.Parse(s);
+        //var y = VD.Version.Parse(s);
 
         if (args.Length == 0)
         {
@@ -43,8 +43,15 @@ class Program
         Console.WriteLine($"Incrementing project version for {projectFile}");
 
         Incrementer incrementer = new Incrementer();
-        incrementer.IncrementVersion(projectFile);
 
-        Console.WriteLine($"Version successfully incremented for {projectFile}");
+        try
+        {
+            incrementer.IncrementVersion(projectFile);
+            Console.WriteLine($"Version successfully incremented for {projectFile}");
+        }
+        catch (ArgumentException ae)
+        {
+            Console.WriteLine($"Could not increment version. Error: {ae.Message}");
+        }
     }
 }

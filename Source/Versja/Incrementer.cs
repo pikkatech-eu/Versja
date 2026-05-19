@@ -51,6 +51,11 @@ namespace Versja.Application
 			// Read current version from .csproj
 			VD.Version versionProject	= this.ReadProjectVersion();
 
+			if (versionProject == null)
+			{
+				throw new ArgumentException("Could not parse version in project file");
+			}
+
 			// Update Build and Patch in versionConfiguration using values from versionProject
 			VD.Version version			= this.MergeVersions(versionProject, versionConfig);
 
@@ -114,7 +119,13 @@ namespace Versja.Application
 			if (xGroup.Element(VERSION) != null)
 			{
 				string sVersion	= xGroup.Element(VERSION).Value;
-				version	= VD.Version.Parse(sVersion);
+
+				bool canParse	= VD.Version.TryParse(sVersion, out version);
+
+				if (!canParse)
+				{
+					return null;
+				}
 			}
 			else
 			{
