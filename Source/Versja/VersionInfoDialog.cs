@@ -32,6 +32,10 @@ namespace Versja
 																		"net10.0-ios",
 																		"net10.0-windows"
 																	];
+
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+		public string WorkingDirectory			{get;set;}
+
 		public VersionInfoDialog()
 		{
 			InitializeComponent();
@@ -81,6 +85,7 @@ namespace Versja
 
 				this._cxPrereleaseId.SelectedItem	= value.PrereleaseId;
 				this._dtpDate.Value					= value.Date??DateTime.Today;
+				this._nudCadence.Value				= (int)value.Cadence;
 				this._cxRuntimeTarget.SelectedItem	= value.RuntimeTarget;
 			}
 		}
