@@ -51,22 +51,22 @@ You may optionally add `VERSJA_DIR` to the system `PATH`.
 ### As External Tool in Visual Studio
 #### Adding Versja tool
 In VS menu "Tools -> External Tools" click add ind instead "[New Tool 1]" change the name to "Versja" (or whatever name you prefer).
-Your External Tools dialog will look like ![versja-installation-as-tool](versja-installation-as-tool.png).\
+Your External Tools dialog will look like ![versja-installation-as-tool](Images/versja-installation-as-tool.png).\
 **Important:** 
   - The arguments line must look exactly as shown: `$(ProjectFileName)`followed by ` increment`.
   - Checkout the "Use Output Window" box.
 
 Calling this tool results in incrementation of the version of the selected project in VS 2022:
-![version-result](version-result.png).
+![version-result](Images/version-result.png).
 
 #### Adding Versja Configurator tool
 In VS menu "Tools -> External Tools" click add ind instead "[New Tool 1]" change the name to "Versja Configurator" (or whatever name you prefer).
 
-Your External Tools dialog will look like ![versja-configurator-installation-as-tool](versja-configurator-installation-as-tool.png).
+Your External Tools dialog will look like ![versja-configurator-installation-as-tool](Images/versja-configurator-installation-as-tool.png).
 
 Using this tool calls the Version Configuration dialog
 
-![version-configuration-dialog](version-configuration-dialog.png).
+![version-configuration-dialog](Images/version-configuration-dialog.png).
 
 In the dialog, one can change major and minor versions, as well as build (an attempt to decrease build is theoretically possible, but user will be warned that she must know what he does.)
 
