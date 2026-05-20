@@ -14,11 +14,11 @@ namespace Tests
 		{
 			string projectFileName = "C:\\pikkatech.eu\\Projects\\.Net\\Zoo\\Versja\\Source\\Tests\\Tests.csproj";
 
-			Incrementer incrementer = new Incrementer();
-			incrementer.IncrementVersion(projectFileName);
+			//Incrementer incrementer = new Incrementer();
+			//incrementer.IncrementVersion(projectFileName);
 
-			//Configurator configurator = new Configurator();
-			//configurator.Configure(projectFileName);
+			Configurator configurator = new Configurator();
+			configurator.Configure(projectFileName);
 		}
 	}
 }

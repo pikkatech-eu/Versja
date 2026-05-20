@@ -230,9 +230,12 @@
 			this._nudBuild.Name = "_nudBuild";
 			this._nudBuild.Size = new Size(150, 30);
 			this._nudBuild.TabIndex = 10;
+			this._nudBuild.ValueChanged += this.OnBuildChanged;
+			this._nudBuild.Enter += this.OnBuildEnter;
 			// 
 			// _nudRevision
 			// 
+			this._nudRevision.Enabled = false;
 			this._nudRevision.Location = new Point(130, 87);
 			this._nudRevision.Name = "_nudRevision";
 			this._nudRevision.Size = new Size(150, 30);
@@ -255,6 +258,7 @@
 			// 
 			// _nudCadence
 			// 
+			this._nudCadence.Enabled = false;
 			this._nudCadence.Location = new Point(130, 179);
 			this._nudCadence.Name = "_nudCadence";
 			this._nudCadence.Size = new Size(150, 30);

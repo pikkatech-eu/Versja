@@ -119,6 +119,12 @@ namespace Versja
 			version.Revision++;
 		}
 
+		/// <summary>
+		/// Merging of version data from project file (old values) and from configuration file (possibly new, manually modified values).
+		/// </summary>
+		/// <param name="versionProject"></param>
+		/// <param name="versionConfig"></param>
+		/// <returns></returns>
 		private VersionInfo MergeVersions(VersionInfo versionProject, VersionInfo versionConfig)
 		{
 			VersionInfo version		= versionConfig;
