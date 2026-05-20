@@ -19,7 +19,30 @@ namespace Versja
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello Revamp");
+			if (args.Length == 2)
+			{
+				string projectFileName = args[0];
+				string action	= args[1];
+
+				if (action == "increment")
+				{
+					Incrementer incrementer = new Incrementer();
+					incrementer.IncrementVersion(projectFileName);
+				}
+				else if (action == "configure")
+				{
+					Configurator configurator = new Configurator();
+					configurator.Configure(projectFileName);
+				}
+			}
+			else
+			{
+				Console.WriteLine("Versja: Tool to semi-automated increment versions of VS projects.");
+				Console.WriteLine("Usage: versja.exe FULL_PROJECT_FILE_NAME ACTION");
+				Console.WriteLine("FULL_PROJECT_FILE_NAME: full path to the .csproj file");
+				Console.WriteLine("ACTION: \"increment\" to automatically increment version");
+				Console.WriteLine("        \"configure\" to manually configure");
+			}
 		}
 	}
 }

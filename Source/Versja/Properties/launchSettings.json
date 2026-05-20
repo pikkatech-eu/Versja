@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Versja": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\\\pikkatech.eu\\\\Projects\\\\.Net\\\\Zoo\\\\Versja\\\\Source\\\\Tests\\\\Tests.csproj configure"
+    }
+  }
+}
