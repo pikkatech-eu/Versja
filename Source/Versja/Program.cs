@@ -14,16 +14,6 @@ namespace Versja
 	{
 		static void Main(string[] args)
 		{
-
-
-			File.AppendAllText(
-								@"C:\Temp\versja.log",
-								$"[{DateTime.Now:HH:mm:ss.fff}] " +
-								$"PID={Environment.ProcessId} " +
-								$"CMD={Environment.CommandLine}\n"
-							);
-
-
 			if (args.Length == 2)
 			{
 				string projectFileName	= args[0];
@@ -43,8 +33,6 @@ namespace Versja
 				}
 				else
 				{
-					Console.WriteLine("stupid");
-
 					return;
 				}
 			}
