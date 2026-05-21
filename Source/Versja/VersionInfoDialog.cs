@@ -86,6 +86,16 @@ namespace Versja
 			this._previousBuild = (int)this._nudBuild.Value;
 		}
 
+		private void OnCopyVersionInfo(object sender, EventArgs e)
+		{
+			Clipboard.SetText(this._lblVersionInfo.Text);
+		}
+
+		private void OnVersionInfoChanged(object sender, EventArgs e)
+		{
+			this._lblVersionInfo.Text = this.VersionInfo.ToString();
+		}
+
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public VersionInfo VersionInfo
 		{

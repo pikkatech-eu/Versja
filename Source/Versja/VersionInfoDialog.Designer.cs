@@ -48,6 +48,8 @@
 			this._dtpDate = new DateTimePicker();
 			this._nudCadence = new NumericUpDown();
 			this._cxRuntimeTarget = new ComboBox();
+			this._lblVersionInfo = new Label();
+			this._btCopy = new Button();
 			this._tlpVersionInfo.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)this._nudMajor).BeginInit();
 			((System.ComponentModel.ISupportInitialize)this._nudMinor).BeginInit();
@@ -60,7 +62,7 @@
 			// 
 			this._btOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
 			this._btOk.DialogResult = DialogResult.OK;
-			this._btOk.Location = new Point(12, 263);
+			this._btOk.Location = new Point(12, 287);
 			this._btOk.Margin = new Padding(0);
 			this._btOk.Name = "_btOk";
 			this._btOk.Size = new Size(80, 32);
@@ -73,7 +75,7 @@
 			// 
 			this._btCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
 			this._btCancel.DialogResult = DialogResult.Cancel;
-			this._btCancel.Location = new Point(108, 263);
+			this._btCancel.Location = new Point(108, 287);
 			this._btCancel.Margin = new Padding(0);
 			this._btCancel.Name = "_btCancel";
 			this._btCancel.Size = new Size(80, 32);
@@ -87,7 +89,7 @@
 			this._tlpVersionInfo.ColumnCount = 3;
 			this._tlpVersionInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 127F));
 			this._tlpVersionInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-			this._tlpVersionInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+			this._tlpVersionInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 55F));
 			this._tlpVersionInfo.Controls.Add(this.label1, 0, 0);
 			this._tlpVersionInfo.Controls.Add(this.label2, 0, 1);
 			this._tlpVersionInfo.Controls.Add(this.label3, 0, 2);
@@ -104,10 +106,12 @@
 			this._tlpVersionInfo.Controls.Add(this._dtpDate, 1, 5);
 			this._tlpVersionInfo.Controls.Add(this._nudCadence, 1, 6);
 			this._tlpVersionInfo.Controls.Add(this._cxRuntimeTarget, 1, 7);
+			this._tlpVersionInfo.Controls.Add(this._lblVersionInfo, 0, 8);
+			this._tlpVersionInfo.Controls.Add(this._btCopy, 2, 8);
 			this._tlpVersionInfo.Dock = DockStyle.Top;
 			this._tlpVersionInfo.Location = new Point(0, 0);
 			this._tlpVersionInfo.Name = "_tlpVersionInfo";
-			this._tlpVersionInfo.RowCount = 9;
+			this._tlpVersionInfo.RowCount = 10;
 			this._tlpVersionInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
 			this._tlpVersionInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
 			this._tlpVersionInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
@@ -116,8 +120,9 @@
 			this._tlpVersionInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
 			this._tlpVersionInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
 			this._tlpVersionInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-			this._tlpVersionInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-			this._tlpVersionInfo.Size = new Size(305, 245);
+			this._tlpVersionInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+			this._tlpVersionInfo.RowStyles.Add(new RowStyle());
+			this._tlpVersionInfo.Size = new Size(305, 272);
 			this._tlpVersionInfo.TabIndex = 2;
 			// 
 			// label1
@@ -210,67 +215,113 @@
 			// 
 			// _nudMajor
 			// 
+			this._tlpVersionInfo.SetColumnSpan(this._nudMajor, 2);
+			this._nudMajor.Dock = DockStyle.Fill;
 			this._nudMajor.Location = new Point(130, 3);
 			this._nudMajor.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
 			this._nudMajor.Name = "_nudMajor";
-			this._nudMajor.Size = new Size(150, 30);
+			this._nudMajor.Size = new Size(172, 30);
 			this._nudMajor.TabIndex = 8;
 			this._nudMajor.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			this._nudMajor.ValueChanged += this.OnVersionInfoChanged;
 			// 
 			// _nudMinor
 			// 
+			this._tlpVersionInfo.SetColumnSpan(this._nudMinor, 2);
+			this._nudMinor.Dock = DockStyle.Fill;
 			this._nudMinor.Location = new Point(130, 31);
 			this._nudMinor.Name = "_nudMinor";
-			this._nudMinor.Size = new Size(150, 30);
+			this._nudMinor.Size = new Size(172, 30);
 			this._nudMinor.TabIndex = 9;
+			this._nudMinor.ValueChanged += this.OnVersionInfoChanged;
 			// 
 			// _nudBuild
 			// 
+			this._tlpVersionInfo.SetColumnSpan(this._nudBuild, 2);
+			this._nudBuild.Dock = DockStyle.Fill;
 			this._nudBuild.Location = new Point(130, 59);
 			this._nudBuild.Name = "_nudBuild";
-			this._nudBuild.Size = new Size(150, 30);
+			this._nudBuild.Size = new Size(172, 30);
 			this._nudBuild.TabIndex = 10;
-			this._nudBuild.ValueChanged += this.OnBuildChanged;
+			this._nudBuild.ValueChanged += this.OnVersionInfoChanged;
 			this._nudBuild.Enter += this.OnBuildEnter;
 			// 
 			// _nudRevision
 			// 
+			this._tlpVersionInfo.SetColumnSpan(this._nudRevision, 2);
+			this._nudRevision.Dock = DockStyle.Fill;
 			this._nudRevision.Enabled = false;
 			this._nudRevision.Location = new Point(130, 87);
 			this._nudRevision.Name = "_nudRevision";
-			this._nudRevision.Size = new Size(150, 30);
+			this._nudRevision.Size = new Size(172, 30);
 			this._nudRevision.TabIndex = 11;
+			this._nudRevision.ValueChanged += this.OnVersionInfoChanged;
 			// 
 			// _cxPrereleaseId
 			// 
+			this._tlpVersionInfo.SetColumnSpan(this._cxPrereleaseId, 2);
+			this._cxPrereleaseId.Dock = DockStyle.Fill;
 			this._cxPrereleaseId.FormattingEnabled = true;
 			this._cxPrereleaseId.Location = new Point(130, 115);
 			this._cxPrereleaseId.Name = "_cxPrereleaseId";
-			this._cxPrereleaseId.Size = new Size(151, 31);
+			this._cxPrereleaseId.Size = new Size(172, 31);
 			this._cxPrereleaseId.TabIndex = 12;
+			this._cxPrereleaseId.SelectedIndexChanged += this.OnVersionInfoChanged;
 			// 
 			// _dtpDate
 			// 
+			this._tlpVersionInfo.SetColumnSpan(this._dtpDate, 2);
+			this._dtpDate.Dock = DockStyle.Fill;
 			this._dtpDate.Location = new Point(130, 147);
 			this._dtpDate.Name = "_dtpDate";
-			this._dtpDate.Size = new Size(152, 30);
+			this._dtpDate.Size = new Size(172, 30);
 			this._dtpDate.TabIndex = 13;
 			// 
 			// _nudCadence
 			// 
+			this._tlpVersionInfo.SetColumnSpan(this._nudCadence, 2);
+			this._nudCadence.Dock = DockStyle.Fill;
 			this._nudCadence.Enabled = false;
 			this._nudCadence.Location = new Point(130, 179);
 			this._nudCadence.Name = "_nudCadence";
-			this._nudCadence.Size = new Size(150, 30);
+			this._nudCadence.Size = new Size(172, 30);
 			this._nudCadence.TabIndex = 14;
+			this._nudCadence.ValueChanged += this.OnVersionInfoChanged;
 			// 
 			// _cxRuntimeTarget
 			// 
+			this._tlpVersionInfo.SetColumnSpan(this._cxRuntimeTarget, 2);
+			this._cxRuntimeTarget.Dock = DockStyle.Fill;
 			this._cxRuntimeTarget.FormattingEnabled = true;
 			this._cxRuntimeTarget.Location = new Point(130, 207);
+			this._cxRuntimeTarget.Margin = new Padding(3, 3, 3, 0);
 			this._cxRuntimeTarget.Name = "_cxRuntimeTarget";
-			this._cxRuntimeTarget.Size = new Size(151, 31);
+			this._cxRuntimeTarget.Size = new Size(172, 31);
 			this._cxRuntimeTarget.TabIndex = 15;
+			this._cxRuntimeTarget.SelectedIndexChanged += this.OnVersionInfoChanged;
+			// 
+			// _lblVersionInfo
+			// 
+			this._lblVersionInfo.AutoSize = true;
+			this._tlpVersionInfo.SetColumnSpan(this._lblVersionInfo, 2);
+			this._lblVersionInfo.Dock = DockStyle.Fill;
+			this._lblVersionInfo.Location = new Point(3, 232);
+			this._lblVersionInfo.Name = "_lblVersionInfo";
+			this._lblVersionInfo.Size = new Size(244, 32);
+			this._lblVersionInfo.TabIndex = 16;
+			this._lblVersionInfo.Text = "***";
+			// 
+			// _btCopy
+			// 
+			this._btCopy.Font = new Font("Segoe UI", 8F);
+			this._btCopy.Location = new Point(250, 234);
+			this._btCopy.Margin = new Padding(0, 2, 0, 0);
+			this._btCopy.Name = "_btCopy";
+			this._btCopy.Size = new Size(55, 29);
+			this._btCopy.TabIndex = 17;
+			this._btCopy.Text = "Copy";
+			this._btCopy.UseVisualStyleBackColor = true;
+			this._btCopy.Click += this.OnCopyVersionInfo;
 			// 
 			// VersionInfoDialog
 			// 
@@ -278,7 +329,7 @@
 			this.AutoScaleDimensions = new SizeF(9F, 23F);
 			this.AutoScaleMode = AutoScaleMode.Font;
 			this.CancelButton = this._btCancel;
-			this.ClientSize = new Size(305, 303);
+			this.ClientSize = new Size(305, 327);
 			this.Controls.Add(this._tlpVersionInfo);
 			this.Controls.Add(this._btCancel);
 			this.Controls.Add(this._btOk);
@@ -319,5 +370,7 @@
 		private DateTimePicker _dtpDate;
 		private NumericUpDown _nudCadence;
 		private ComboBox _cxRuntimeTarget;
+		private Label _lblVersionInfo;
+		private Button _btCopy;
 	}
 }

@@ -9,7 +9,7 @@
     <GenerateProgramFile>false</GenerateProgramFile>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <IsReleaseProject />
-    <Version>1.1.0.55-beta.20260521.7+net9.0</Version>
+    <Version>1.1.0.58-beta.20260521.10+net9.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
