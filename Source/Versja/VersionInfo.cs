@@ -28,7 +28,7 @@ namespace Versja
 		public string?		PrereleaseId	{get;set;} = "build";
 		public DateTime?	Date			{get;set;} = DateTime.Today;
 		public int?			Cadence			{get;set;} = 0;
-		public string?		RuntimeTarget	{get;set;} = null;
+		public string?		RuntimeTarget	{get;set;} = "";
 		#endregion
 
 		public override string ToString()

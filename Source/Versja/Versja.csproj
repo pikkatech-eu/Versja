@@ -8,7 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <BaseOutputPath>..\..\Binary</BaseOutputPath>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
-    <Version>1.0.0.1-build.20260522.1+net9.0-windows</Version>
+    <Version>1.0.0.2-beta.20260522.2+net9.0</Version>
     <IsReleaseProject />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -20,4 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Proto\Factotum\Code\CSharp\Factotum\Factotum.csproj" />
   </ItemGroup>
+  <Target Name="AutoIncrementVersion" AfterTargets="Build">
+    <Exec Command="&quot;C:\MyPrograms\Pikkatech\Versja\Versja.exe&quot; &quot;$(MSBuildProjectFullPath)&quot; increment" />
+  </Target>
 </Project>
