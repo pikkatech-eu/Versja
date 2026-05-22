@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Factotum.Logging;
 
 namespace Versja
 {
@@ -100,6 +101,8 @@ namespace Versja
 
 		private void WriteToConfigurationFile(VersionInfo version)
 		{
+			Logger.Trace($"WriteToConfigurationFile: {version}");
+
 			version.Save(Path.Combine(this.WorkingFolder, VERSION_FILE_NAME));
 		}
 

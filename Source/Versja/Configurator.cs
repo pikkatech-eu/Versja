@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Factotum.Logging;
 
 namespace Versja
 {
@@ -31,9 +32,11 @@ namespace Versja
 			this.WorkingFolder			= new DirectoryInfo(this.ProjectFileName).Parent.FullName;
 
 			// Read configurated version from version.json
-			VersionInfo versionConfig = this.GetConfigurationVersion();
+			VersionInfo versionConfig	= this.GetConfigurationVersion();
 
 			VersionInfo version			= this.GetVersion(versionConfig);
+
+			Logger.Trace($"versionConfig={versionConfig}");
 
 			Console.WriteLine($"New version: {version}");
 

@@ -8,6 +8,8 @@
 ***********************************************************************************/
 
 using System.ComponentModel;
+using System.Diagnostics;
+using Factotum.Logging;
 
 namespace Versja
 {
@@ -88,7 +90,16 @@ namespace Versja
 
 		private void OnCopyVersionInfo(object sender, EventArgs e)
 		{
-			Clipboard.SetText(this._lblVersionInfo.Text);
+			try
+			{
+				Logger.Trace(this._lblVersionInfo.Text);
+
+				Clipboard.SetText(this._lblVersionInfo.Text);
+			}
+			catch (Exception ex)
+			{
+				Logger.Debug(ex.Message);
+			}
 		}
 
 		private void OnVersionInfoChanged(object sender, EventArgs e)

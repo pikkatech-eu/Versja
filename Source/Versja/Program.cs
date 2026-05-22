@@ -8,12 +8,17 @@
 ***********************************************************************************/
 
 
+using Factotum.Logging;
+
 namespace Versja
 {
 	public static class Program
 	{
+		[STAThread]
 		static void Main(string[] args)
 		{
+			Logger.Open("Versja");
+
 			if (args.Length == 2)
 			{
 				string projectFileName	= args[0];
