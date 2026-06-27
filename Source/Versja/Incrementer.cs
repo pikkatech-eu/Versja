@@ -101,8 +101,6 @@ namespace Versja
 
 		private void WriteToConfigurationFile(VersionInfo version)
 		{
-			Logger.Trace($"WriteToConfigurationFile: {version}");
-
 			version.Save(Path.Combine(this.WorkingFolder, VERSION_FILE_NAME));
 		}
 

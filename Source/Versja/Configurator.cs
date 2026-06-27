@@ -34,11 +34,7 @@ namespace Versja
 			// Read configurated version from version.json
 			VersionInfo versionConfig	= this.GetConfigurationVersion();
 
-			Logger.Info("Label 1");
-
 			VersionInfo version			= this.GetVersion(versionConfig);
-
-			Logger.Trace($"versionConfig={versionConfig}");
 
 			Console.WriteLine($"New version: {version}");
 
@@ -55,36 +51,19 @@ namespace Versja
 
 		private VersionInfo GetVersion(VersionInfo version)
 		{
-			Logger.Info("Label 2");
-
 			VersionInfoDialog dialog	= new VersionInfoDialog();
 
-			Logger.Info("Label 3");
-
-			if (version == null)
-			{
-				Logger.Trace("GetVersion: version == null");
-			}
-			else
-			{
-				Logger.Trace($"GetVersion: version == {version}");
-			}
-
-			Logger.Info("Label 3.1");
 			dialog.VersionInfo			= version;
-			Logger.Info("Label 3.2");
 
 			dialog.WorkingDirectory		= this.WorkingFolder;
 
 			if (dialog.ShowDialog() == DialogResult.OK)
 			{
-				Logger.Info("Label 4");
 				return dialog.VersionInfo;
 			}
 			else
 			{
 
-				Logger.Info("Label 5");
 				return null;
 			}
 		}
@@ -95,22 +74,15 @@ namespace Versja
 
 			string fileName = Path.Combine(this.WorkingFolder, VERSION_FILE_NAME);
 
-			Logger.Trace($"GetConfigurationVersion: {fileName}");
-
 			if (File.Exists(fileName))
 			{
-				Logger.Trace("GetConfigurationVersion: file exists");
-
 				version = VersionInfo.Load(fileName);
 			}
 			else
 			{
-				Logger.Trace("GetConfigurationVersion: file does not exist");
 				version = new VersionInfo();
 			}
 			
-			Logger.Trace($"GetConfigurationVersion: {version}");
-
 			return version;
 		}
 	}

@@ -17,7 +17,7 @@ namespace Versja
 		[STAThread]
 		static void Main(string[] args)
 		{
-			Logger.Open("Versja");
+			// Logger.Open("Versja");
 
 			if (args.Length == 2)
 			{

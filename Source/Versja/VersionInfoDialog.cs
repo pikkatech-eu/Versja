@@ -92,8 +92,6 @@ namespace Versja
 		{
 			try
 			{
-				Logger.Trace(this._lblVersionInfo.Text);
-
 				Clipboard.SetText(this._lblVersionInfo.Text);
 			}
 			catch (Exception ex)
@@ -128,24 +126,16 @@ namespace Versja
 
 			set
 			{
-				Logger.Info("Label Dialog 1");
 				this._nudMajor.Value = value.Major;
 				this._nudMinor.Value = value.Minor;
 				this._nudBuild.Value = value.Build;
 				this._nudRevision.Value = value.Revision;
 
-				Logger.Info("Label Dialog 2");
 				this._cxPrereleaseId.SelectedItem = value.PrereleaseId;
-				Logger.Info("Label Dialog 2.1");
 				this._dtpDate.Value = value.Date ?? DateTime.Today;
-				Logger.Info("Label Dialog 2.2");
 				this._nudCadence.Value = (int)value.Cadence;
-				Logger.Info("Label Dialog 2.3");
 
-				Logger.Trace(value.RuntimeTarget != null ? value.RuntimeTarget : "value.RuntimeTarget == null");
 				this._cxRuntimeTarget.SelectedItem = value.RuntimeTarget;
-
-				Logger.Info("Label Dialog 3");
 			}
 		}
 	}

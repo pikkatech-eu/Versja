@@ -231,6 +231,7 @@
 			this._tlpVersionInfo.SetColumnSpan(this._nudMinor, 2);
 			this._nudMinor.Dock = DockStyle.Fill;
 			this._nudMinor.Location = new Point(130, 31);
+			this._nudMinor.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
 			this._nudMinor.Name = "_nudMinor";
 			this._nudMinor.Size = new Size(376, 30);
 			this._nudMinor.TabIndex = 9;
@@ -241,6 +242,7 @@
 			this._tlpVersionInfo.SetColumnSpan(this._nudBuild, 2);
 			this._nudBuild.Dock = DockStyle.Fill;
 			this._nudBuild.Location = new Point(130, 59);
+			this._nudBuild.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
 			this._nudBuild.Name = "_nudBuild";
 			this._nudBuild.Size = new Size(376, 30);
 			this._nudBuild.TabIndex = 10;
@@ -253,6 +255,7 @@
 			this._nudRevision.Dock = DockStyle.Fill;
 			this._nudRevision.Enabled = false;
 			this._nudRevision.Location = new Point(130, 87);
+			this._nudRevision.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
 			this._nudRevision.Name = "_nudRevision";
 			this._nudRevision.Size = new Size(376, 30);
 			this._nudRevision.TabIndex = 11;
@@ -284,6 +287,7 @@
 			this._nudCadence.Dock = DockStyle.Fill;
 			this._nudCadence.Enabled = false;
 			this._nudCadence.Location = new Point(130, 179);
+			this._nudCadence.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
 			this._nudCadence.Name = "_nudCadence";
 			this._nudCadence.Size = new Size(376, 30);
 			this._nudCadence.TabIndex = 14;
